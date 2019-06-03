@@ -53,6 +53,7 @@ def test_one(filename: str) -> bool:
     data.save()
 
     chdir(get_test_path())
+    print_python_version()
 
     cmd = f'python -m py_compile {test_filename}'
     # cmd_run = f'python {test_filename}'
@@ -66,6 +67,11 @@ def test_one(filename: str) -> bool:
 
     chdir('../')
     return result
+
+def print_python_version():
+    cmd = 'python -V'
+    opt, _ = run(cmd)
+    print(opt)
 
 def run(cmd: str) -> Tuple[str, str]:
     process = Popen(cmd.split(), stdout=PIPE, stderr=PIPE)
