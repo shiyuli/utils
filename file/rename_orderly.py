@@ -43,7 +43,7 @@ def rename_core(target, newname):
 
 def valid_filename(filename):
     global script_name
-    if script_name == None:
+    if script_name is None:
         script_name = __file__.split('\\')[-1]
 
     return script_name not in filename
